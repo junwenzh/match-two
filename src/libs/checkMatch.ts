@@ -21,14 +21,14 @@ function dfs(
   direction: string,
   turns: number
 ): boolean {
-  // if start is the end, return true
-  if (start.x === end.x && start.y === end.y) {
-    return true;
-  }
-
   // if turns >= 4, return false
   if (turns === 4) {
     return false;
+  }
+
+  // if start is the end, return true
+  if (start.x === end.x && start.y === end.y) {
+    return true;
   }
 
   // if start is out of bound, return false
