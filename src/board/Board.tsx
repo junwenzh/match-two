@@ -38,8 +38,10 @@ export default function Board({ matrix }: { matrix: number[][] }) {
     if (clickNum === 1) {
       setClickOne({ x: rowIndex, y: colIndex });
     } else if (clickNum === 2) {
-      // if clickOne and clickTwo are the same, do nothing
+      // if clickOne and clickTwo are the same
       if (clickOne.x === rowIndex && clickOne.y === colIndex) {
+        setClickNum(1);
+        setClickOne({ x: 0, y: 0 });
         return;
       }
 
@@ -67,6 +69,7 @@ export default function Board({ matrix }: { matrix: number[][] }) {
           rowIndex={i}
           colIndex={j}
           handleClick={handleClick}
+          highlight={clickOne.x === i && clickOne.y === j}
           key={`${i}-${j}`}
         />
       );

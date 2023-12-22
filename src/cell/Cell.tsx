@@ -17,11 +17,13 @@ export default function Cell({
   value,
   rowIndex,
   colIndex,
+  highlight,
   handleClick,
 }: {
   value: number;
   rowIndex: number;
   colIndex: number;
+  highlight: boolean;
   handleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }) {
   let imageUrl: string;
@@ -82,7 +84,9 @@ export default function Cell({
   return (
     <img
       src={imageUrl}
-      className={`w-full h-full min-h-12 border col-span-1 text-center`}
+      className={`w-full h-full min-h-12 border col-span-1 text-center ${
+        highlight ? 'border-2 border-red-400' : ''
+      }`}
       data-row={rowIndex}
       data-col={colIndex}
       onClick={handleClick}
